@@ -1,0 +1,19 @@
+[
+    {
+        "name": "limón",
+        "price": 5,
+        "image":"https://img-global.cpcdn.com/recipes/cc25e06bba8d746f/1200x630cq70/photo.jpg"
+    },
+    {
+        "name": "queso",
+        "price": 3,
+        "company": "Eseqesite SL",
+        "image":"https://static4-sevilla.abc.es/media/gurme/2022/02/01/s/tarta_queso-0045-k4SE--940x529@abc.jpg"
+    },
+    {
+        "name": "chocolate",
+        "price": 4,
+        "company": "Sargento del queso SA",
+        "image":"https://ep01.epimg.net/elcomidista/imagenes/2021/11/02/articulo/1635877387_796088_1636620148_noticia_fotograma.jpg"
+    }
+]

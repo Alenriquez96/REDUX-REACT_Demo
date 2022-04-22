@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProductItem from './ProductItem'
+import dataCakes from './cakes.json'
 
 export class ProductList extends Component {
 
@@ -7,34 +8,66 @@ export class ProductList extends Component {
     super(props)
 
     this.state = {
-      cakes: [
-        { name: "limón", price: 5 },
-        { name: "queso", price: 3, company: "Eseqesite SL" },
-        { name: "chocolate", price: 4, company: "Sargento del queso SA" }
-      ],
+      cakes: dataCakes, //[] de cakes de la "bbdd"
       lastCake: {}
     }
   }
 
-  addCake = () => {
-    const price = prompt("introduce precio");
-    const name = prompt("introduce tipo de tarta");
+  addCake = (event) => {
+    //const price = prompt("introduce precio");
+    //const name = prompt("introduce tipo de tarta");
     //alert(`has añadido: ${name} ${price}€`)
+
+    event.preventDefault();
+
+    const name = event.target.cake.value;
+    const price = event.target.price.value;
+    const image = event.target.image.value;
+    
+    const newCake = {price,name,image};
     
     // añadir al estado lastCake el último Cake
-    const newCake = {price,name};
     this.setState({lastCake:newCake});
+
+    //Añadir al estado cakes el nuevo Cake
+    this.setState({cakes:[...this.state.cakes,newCake]});
   }
 
+  paintCakes = () => this.state.cakes.map((cake,i)=> <ProductItem data={cake} key={i} remove={()=>this.removeCake(i)}/>)
+
+  removeAllCakes = () => this.setState({cakes:[]});
+
+  resetCakes = () => this.setState({cakes:dataCakes});
+
+  removeCake = (i) => {
+    const remainingCakes = this.state.cakes.filter((cake,j)=>i!==j);
+    this.setState({cakes:remainingCakes});
+  }
+  
   render() {
-    let cakes = this.state.cakes;
+    //let cakes = this.state.cakes;
     let {name,price} = this.state.lastCake;
     return (
       <div>
-        <ProductItem data={cakes[0]} />
-        <ProductItem data={cakes[1]} />
-        <ProductItem data={cakes[2]} />
+
+        <h1>Añadir nuevo cake</h1>
+
+        <form onSubmit={this.addCake}>
+          <label htmlFor="cake">Nombre tarta:</label><br/>
+          <input type="text" id="cake" name="cake"/><br/>
+          <label htmlFor="price">Precio:</label><br/>
+          <input type="text" id="price" name="price"/><br/>
+          <label htmlFor="image">URL imágen:</label><br/>
+          <input type="url" id="image" name="image"/><br/>
+          <input type="submit" value="Enviar"/>
+        </form>
+
+        {this.paintCakes()}
+        
         <button onClick={this.addCake}>Clicka y añade tarta</button>
+        <button onClick={this.removeAllCakes}>Borrar tartas</button>
+        <button onClick={this.resetCakes}>Recarga tartas</button>
+        
         {
           name&&price?
             <p>Última tarta añadida:{name} Precio:{price}€</p>

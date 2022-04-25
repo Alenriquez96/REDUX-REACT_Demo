@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-// import ProductList from './ProductList'
+import { Routes, Route } from 'react-router-dom'
+import ProductList from './ProductList'
 import Chefs from './Chefs'
 export class Main extends Component {
   render() {
@@ -7,8 +8,10 @@ export class Main extends Component {
       <main>
           <h1>Futura web - Exploding Cakes</h1>
           <p>Esto es el Main</p>
-          {/* <ProductList/> */}
-          <Chefs/>
+          <Routes>
+            <Route path='/' element={<ProductList/>}/>
+            <Route path='/listachefs' element={ <Chefs/>}/>
+          </Routes>
         </main>
     )
   }

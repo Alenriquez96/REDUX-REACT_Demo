@@ -1,0 +1,18 @@
+@import '../utils/variables.scss';
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: $menu-color;
+    & > a:link, a:visited, a:active {
+        text-decoration:none;
+        color: $text-color;
+    }
+    & > img {
+        width: 3rem;
+        margin-bottom: $spacing-lg;
+        margin-top: $spacing-md;
+    }
+}

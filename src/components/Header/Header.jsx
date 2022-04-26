@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import Nav from './Nav'
 
 export class Header extends Component {
   render() {
     return (
-      <header>Esto es el Header</header>
+      <header><Nav/></header>
     )
   }
 }

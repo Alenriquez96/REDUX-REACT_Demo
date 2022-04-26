@@ -3,13 +3,36 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import { BrowserRouter } from 'react-router-dom';
+import { useState } from 'react';
+
+import {userContext} from './context/userContext';
 
 function App() {
+
+  const [user, setUser] = useState("Alvaru"); // hook useState
+
+  //login
+  const login = (name) => {
+    setUser(name);
+  }
+  //logout
+
+  const logout = () => {
+    setUser("");
+  }
+  
+  const data = {
+    user,
+    login,
+    logout
+  }
   return (
     <div className="App">
       <BrowserRouter>
-      <Header/>
-      <Main/>
+        <userContext.Provider value={data}>
+          <Header/>
+          <Main/>
+        </userContext.Provider>
       </BrowserRouter>
       <Footer/>
     </div>

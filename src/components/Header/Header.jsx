@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 import {userContext} from '../../context/userContext';
+import Button from '@mui/material/Button';
 
 export class Header extends Component {
   render() {
@@ -13,7 +14,7 @@ export class Header extends Component {
               user?
                 <>
                   <p>Hola, {user}</p>
-                  <button onClick={logout}>Logout</button>
+                  <Button variant="contained" onClick={logout}>Logout</Button>
                 </>:""
           }
           </userContext.Consumer>

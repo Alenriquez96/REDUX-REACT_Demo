@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import {userContext} from '../../../context/userContext';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 class Contact extends Component {
   static contextType = userContext; // Para consumir contexto por JS
@@ -25,10 +27,11 @@ class Contact extends Component {
   render() {
     return <div>
       <h1>Contacto</h1>
-      <form onSubmit={this.login}>
-        <label htmlFor="user">Nombre usuario:</label><br />
-        <input type="text" id="user" name="user" /><br />
-        <input type="submit" value="Enviar" />
+      <form onSubmit={this.login} className='contact'>
+        {/* <label htmlFor="user">Nombre usuario:</label>
+        <input type="text" id="user" name="user" /> */}
+        <TextField id="outlined-basic" label="Nombre usuario" variant="filled" name='user'/>
+        <Button variant="contained" type="submit" sx={{margin:1}}>Enviar</Button>
       </form>
 
       <p>Usuario introducido:{this.state.user?this.state.user:"--"}</p>

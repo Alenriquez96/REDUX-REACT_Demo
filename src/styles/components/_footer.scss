@@ -1,4 +1,7 @@
 footer {
     background-color: $menu-color;
     color: $text-color;
+    bottom: 0;
+    position:absolute;
+    width: 100%;
 }

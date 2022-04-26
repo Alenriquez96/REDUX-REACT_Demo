@@ -64,9 +64,11 @@ export class ProductList extends Component {
         <div className='cake-list'>
           {this.paintCakes()}
         </div>
+        <div className='buttons'>
+          <Button variant="contained" type="submit" onClick={this.removeAllCakes} sx={{margin: 1}}>Borrar tartas</Button>
+          <Button variant="contained" type="submit" onClick={this.resetCakes} sx={{margin: 1}}>Recarga tartas</Button>
+        </div>
         
-        <Button variant="contained" type="submit" onClick={this.removeAllCakes} sx={{margin:1}}>Borrar tartas</Button>
-        <Button variant="contained" type="submit" onClick={this.resetCakes} sx={{margin:1}}>Recarga tartas</Button>
         {/* <button onClick={this.addCake}>Clicka y añade tarta</button>
         <button onClick={this.removeAllCakes}>Borrar tartas</button>
         <button onClick={this.resetCakes}>Recarga tartas</button> */}

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
+import logo from '../../assets/logo-cake.png'
 import {userContext} from '../../context/userContext';
 import Button from '@mui/material/Button';
 
 export class Header extends Component {
   render() {
     return (
-      <header>
+      <header className='header'>
+        <img src={logo} alt='logo'></img>
         <Nav/>
-        <div>
+        <div className='user'>
           <userContext.Consumer>
           {({user,logout}) => 
               user?

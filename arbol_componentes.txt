@@ -1,7 +1,8 @@
 App
     Header
         Img*3
-        Nav --> <nav>   
+        Nav --> <nav>
+        Button   
     Main
         ProductList --> <section>
             ProductItem*3 --> <article>

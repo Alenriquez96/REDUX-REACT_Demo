@@ -10,6 +10,10 @@ class Nav extends Component {
       <br/>
       <Link to='/about'>About</Link>
       <br/>
+      <Link to='/delivery'>Delivery</Link>
+      <br/>
+      <Link to='/topics'>Topics</Link>
+      <br/>
       <Link to='/contact'>Contact</Link>
       <br/>
     </nav>;

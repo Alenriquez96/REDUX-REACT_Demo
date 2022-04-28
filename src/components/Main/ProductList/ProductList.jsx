@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ProductItem from './ProductItem'
 import dataCakes from './cakes.json'
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 export class ProductList extends Component {
 
@@ -52,21 +54,24 @@ export class ProductList extends Component {
 
         <h1>Añadir nuevo cake</h1>
 
-        <form onSubmit={this.addCake}>
-          <label htmlFor="cake">Nombre tarta:</label><br/>
-          <input type="text" id="cake" name="cake"/><br/>
-          <label htmlFor="price">Precio:</label><br/>
-          <input type="text" id="price" name="price"/><br/>
-          <label htmlFor="image">URL imágen:</label><br/>
-          <input type="url" id="image" name="image"/><br/>
-          <input type="submit" value="Enviar"/>
+        <form onSubmit={this.addCake} className='form'>
+          <TextField id="outlined-basic" label="Nombre tarta" variant="filled" name='cake'/>
+          <TextField id="outlined-basic" label="Precio" variant="filled" name='price'/>
+          <TextField id="outlined-basic" label="URL imagen" variant="filled" name='image'/>
+          <Button variant="contained" type="submit" className="Button" sx={{margin:1}}>Guardar</Button>
         </form>
 
-        {this.paintCakes()}
+        <div className='cake-list'>
+          {this.paintCakes()}
+        </div>
+        <div className='buttons'>
+          <Button variant="contained" type="submit" onClick={this.removeAllCakes} sx={{margin: 1}}>Borrar tartas</Button>
+          <Button variant="contained" type="submit" onClick={this.resetCakes} sx={{margin: 1}}>Recarga tartas</Button>
+        </div>
         
-        <button onClick={this.addCake}>Clicka y añade tarta</button>
+        {/* <button onClick={this.addCake}>Clicka y añade tarta</button>
         <button onClick={this.removeAllCakes}>Borrar tartas</button>
-        <button onClick={this.resetCakes}>Recarga tartas</button>
+        <button onClick={this.resetCakes}>Recarga tartas</button> */}
         
         {
           name&&price?

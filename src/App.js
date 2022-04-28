@@ -1,10 +1,10 @@
-import './App.css';
+// import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import { BrowserRouter } from 'react-router-dom';
+import './styles/styles.scss'
 import { useState } from 'react';
-
 import {userContext} from './context/userContext';
 
 function App() {

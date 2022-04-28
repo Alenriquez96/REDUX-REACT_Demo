@@ -3,6 +3,9 @@ import ProductList from './ProductList'
 import Chefs from './Chefs'
 import About from './About'
 import Contact from './Contact'
+import Delivery from './Delivery'
+import Topics from './Topics'
+
 import { Route, Routes } from 'react-router-dom'
 export class Main extends Component {
   render() {
@@ -14,6 +17,8 @@ export class Main extends Component {
             <Route element={<ProductList/>} path='/'/>
             <Route element={<Chefs/>} path='/listachefs'/>
             <Route element={<About/>} path='/about'/>
+            <Route element={<Delivery/>} path='/delivery'/>
+            <Route element={<Topics/>} path='/topics'/>
             <Route element={<Contact/>} path='/contact'/>
           </Routes>
       </main>

@@ -5,11 +5,13 @@ import Footer from './components/Footer';
 import { BrowserRouter } from 'react-router-dom';
 import './styles/styles.scss'
 import { useState } from 'react';
-import {userContext} from './context/userContext';
+import { userContext } from './context/userContext';
+import { themeContext } from './context/themeContext';
 
 function App() {
 
   const [user, setUser] = useState("Alvaru"); // hook useState
+  const [theme, setTheme] = useState("");
 
   //login
   const login = (name) => {
@@ -20,21 +22,31 @@ function App() {
   const logout = () => {
     setUser("");
   }
+  const toggleTheme = () => theme===""?setTheme("-dark"):setTheme("");
   
-  const data = {
+
+  const userData = {
     user,
     login,
     logout
   }
+
+  const themeData = {
+    theme,
+    toggleTheme
+  }
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <userContext.Provider value={data}>
-          <Header/>
-          <Main/>
-        </userContext.Provider>
-      </BrowserRouter>
-      <Footer/>
+      <themeContext.Provider value={themeData}>
+        <BrowserRouter>
+          <userContext.Provider value={userData}>
+            <Header />
+            <Main />
+          </userContext.Provider>
+        </BrowserRouter>
+        <Footer />
+      </themeContext.Provider>
     </div>
   );
 }

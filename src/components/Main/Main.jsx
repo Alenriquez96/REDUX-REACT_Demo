@@ -5,6 +5,7 @@ import About from './About'
 import Contact from './Contact'
 import Delivery from './Delivery'
 import Topics from './Topics'
+import Tasters from './Tasters'
 
 import { Route, Routes } from 'react-router-dom'
 export class Main extends Component {
@@ -19,6 +20,7 @@ export class Main extends Component {
             <Route element={<About/>} path='/about'/>
             <Route element={<Delivery/>} path='/delivery'/>
             <Route element={<Topics/>} path='/topics'/>
+            <Route element={<Tasters/>} path='/tasters'/>
             <Route element={<Contact/>} path='/contact'/>
           </Routes>
       </main>

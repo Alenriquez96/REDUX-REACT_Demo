@@ -7,6 +7,9 @@ import './styles/styles.scss'
 import { useState } from 'react';
 import { userContext } from './context/userContext';
 import { themeContext } from './context/themeContext';
+import {Provider} from 'react-redux';
+import store from './redux/store';
+
 
 //import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -40,15 +43,17 @@ function App() {
 
   return (
     <div className="App">
-      <themeContext.Provider value={themeData}>
-        <BrowserRouter>
-          <userContext.Provider value={userData}>
-            <Header />
-            <Main />
-          </userContext.Provider>
-        </BrowserRouter>
-        <Footer />
-      </themeContext.Provider>
+      <Provider store={store}>
+        <themeContext.Provider value={themeData}>
+          <BrowserRouter>
+            <userContext.Provider value={userData}>
+              <Header />
+              <Main />
+            </userContext.Provider>
+          </BrowserRouter>
+          <Footer />
+        </themeContext.Provider>
+      </Provider>
     </div>
   );
 }

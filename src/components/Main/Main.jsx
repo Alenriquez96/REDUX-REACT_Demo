@@ -6,6 +6,7 @@ import Contact from './Contact'
 import Delivery from './Delivery'
 import Topics from './Topics'
 import Tasters from './Tasters'
+import PruebaRedux from './PruebaRedux'
 
 import { Route, Routes } from 'react-router-dom'
 export class Main extends Component {
@@ -21,6 +22,7 @@ export class Main extends Component {
             <Route element={<Delivery/>} path='/delivery'/>
             <Route element={<Topics/>} path='/topics'/>
             <Route element={<Tasters/>} path='/tasters'/>
+            <Route element={<PruebaRedux/>} path='/redux'/>
             <Route element={<Contact/>} path='/contact'/>
           </Routes>
       </main>

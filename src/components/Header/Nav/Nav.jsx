@@ -10,6 +10,7 @@ class Nav extends Component {
       <Link to="/aboutme" className="nav__element">About me</Link>
       <Link to='/delivery' className="nav__element">Delivery</Link>
       <Link to='/topics' className="nav__element">Topics</Link>
+      <Link to="/redux" className="nav__element">Redux</Link>
       <Link to='/tasters' className="nav__element">Tasters</Link>
       <Link to="/contact" className="nav__element">Contact</Link>
     </div>;

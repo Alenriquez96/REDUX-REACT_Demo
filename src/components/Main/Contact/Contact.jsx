@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {userContext} from '../../../context/userContext';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import axios from 'axios';
 
 class Contact extends Component {
   static contextType = userContext; // Para consumir contexto por JS
@@ -10,18 +11,28 @@ class Contact extends Component {
     super(props)
   
     this.state = {
-       user:""
+       user:"",
+       id:0
     }
   }
 
-  login = (event) => {
+  login = async(event) => {
     event.preventDefault();
     const user = event.target.user.value;
-    this.setState({user});
+    
     // Guardar en el contexto de user
     //const loginUser = this.context.login; // Leer la función login
     //loginUser(user); 
     this.context.login(user);
+
+    //Llamada a la API para hacer POST
+            
+    const res = await axios.post('https://jsonplaceholder.typicode.com/posts',{user});
+    const json = res.data;
+    console.log(json);
+    // Lo guardo en el estado
+    this.setState(json); // {user,id}
+
   }
 
   render() {
@@ -34,7 +45,7 @@ class Contact extends Component {
         <Button variant="contained" type="submit" sx={{margin:1}}>Enviar</Button>
       </form>
 
-      <p>Usuario introducido:{this.state.user?this.state.user:"--"}</p>
+      <p>Usuario introducido:{this.state.user?this.state.user:"--"}. ID en el sistema:{this.state.id}</p>
 
     </div>;
   }
